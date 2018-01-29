@@ -1,0 +1,23 @@
+[
+  {
+   "name": {"first_name": "Jane", "last_name": "Doe"},
+   "address": {"street": "1684 Twin Oaks Drive", "city":"Traverse City", "state": "MI", "zip": "49686"},
+   "phone": "1234567890",
+   "creditCard": "1111222233334444",
+   "orderHistory": {}
+  },
+  {
+    "name": {"first_name": "John", "last_name": "Doe"},
+    "address": {"street": "4803 Northwest Boulevard", "city":"Red Bank", "state": "NJ", "zip": "07701"},
+    "phone": "0987654321",
+    "creditCard": "9999888877776666",
+    "orderHistory": {}
+   },
+   {
+    "name": {"first_name": "Vladimir", "last_name": "Lenin"},
+    "address": {"street": "1 Red Square", "city":"Moscow", "state": "RU", "zip": "11111"},
+    "phone": "1111111111",
+    "creditCard": "0000000000000000",
+    "orderHistory": {}
+   }
+]

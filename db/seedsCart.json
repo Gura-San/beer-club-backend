@@ -1,0 +1,20 @@
+[
+  {
+    "bName": "Bud",
+    "bQt": "1",
+    "bPrice": "7",
+    "bPic": "https://goo.gl/nz8A6W"
+  },
+  {
+    "bName": "Corona",
+    "bQt": "1",
+    "bPrice": "7",
+    "bPic": "https://goo.gl/r6ucgN"
+  },
+  {
+    "bName": "heineken",
+    "bQt": "1",
+    "bPrice": "7",
+    "bPic": "https://goo.gl/bFs9Rz"
+  }
+]
