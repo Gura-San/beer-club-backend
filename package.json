@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "brewerydb-node": "0.0.1",
     "dotenv": "^4.0.0",
     "express": "*",
     "method-override": "^2.3.10",

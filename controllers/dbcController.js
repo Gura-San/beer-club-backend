@@ -2,13 +2,20 @@ const Router = require('express').Router()
 const User = require('../db/schema').User
 const Cart = require('../db/schema').Cart
 
+const BreweryDb = require('brewerydb-node')
+
 // ================== API Variables ==================
 require('dotenv').config()
+var brewdb = new BreweryDb(process.env.MASHAPEKEY)
 // ===================================================
 
 // main page route
-Router.get('/', (req, res) => {
-  res.send('You tried to get something, soon I will get it for you ;)')
+Router.get('/search/:name', (req, res) => {
+  console.log(req.params.name)
+  brewdb.search.beers({ p: 1, q: req.params.name }, (error, data) => {
+    res.send(data)
+    console.log(error)
+  })
 })
 
 Router.post('/', (req, res) => {
