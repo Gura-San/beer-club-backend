@@ -10,7 +10,7 @@ const BeerSchema = new mongoose.Schema({
     name: String,
     shortName: String
   },
-  price: 7
+  price: Number
 })
 
 const CartSchema = new mongoose.Schema({

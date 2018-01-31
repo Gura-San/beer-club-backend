@@ -33,14 +33,15 @@ Router.get('/search/:name', (req, res) => {
       Beer.find({})
     .then((data) => {
       res.send(data)
-      console.log(data)
     })
     })
   })
 })
 
-Router.post('/', (req, res) => {
-  res.send('You tried to post something, soon I will post it for you ;)')
+Router.post('/buy/:name', (req, res) => {
+  Beer.findOne({id: req.params.name}).then((data) => {
+    Cart.collection.insert(data)
+  }).then(_ => { res.send('your data posted') })
 })
 
 Router.put('/', (req, res) => {
