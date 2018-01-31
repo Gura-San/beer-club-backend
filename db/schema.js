@@ -9,15 +9,21 @@ const BeerSchema = new mongoose.Schema({
   style: {
     name: String,
     shortName: String
-  }
+  },
+  price: 7
 })
 
 const CartSchema = new mongoose.Schema({
-  bName: String,
-  bQt: Number,
-  bPrice: Number,
-  bPic: String,
-  beers: [ BeerSchema ]
+  id: String,
+  name: String,
+  description: String,
+  abv: String,
+  labels: {},
+  style: {
+    name: String,
+    shortName: String
+  },
+  price: Number
 })
 
 const UserSchema = new mongoose.Schema({
