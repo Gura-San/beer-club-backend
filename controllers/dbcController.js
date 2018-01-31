@@ -1,6 +1,7 @@
 const Router = require('express').Router()
 const User = require('../db/schema').User
 const Cart = require('../db/schema').Cart
+const Beer = require('../db/schema').Beer
 
 const BreweryDb = require('brewerydb-node')
 
@@ -10,11 +11,31 @@ var brewdb = new BreweryDb(process.env.MASHAPEKEY)
 // ===================================================
 
 // main page route
+
 Router.get('/search/:name', (req, res) => {
-  console.log(req.params.name)
   brewdb.search.beers({ p: 1, q: req.params.name }, (error, data) => {
-    res.send(data)
-    console.log(error)
+    const cleanedData = data.map(beer => ({
+      id: beer.id,
+      name: beer.name,
+      description: beer.description,
+      abv: beer.abv,
+      labels: beer.labels,
+      style: {
+        name: beer.style.name,
+        shortName: beer.style.shortName
+      }
+    })
+  )
+
+    Beer.remove({}).then(() => {
+      Beer.collection.insert(cleanedData)
+    }).then(_ => {
+      Beer.find({})
+    .then((data) => {
+      res.send(data)
+      console.log(data)
+    })
+    })
   })
 })
 

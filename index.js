@@ -2,8 +2,10 @@ const express = require('express')
 const dbc = require('./controllers/dbcController')
 const parser = require('body-parser')
 const methodOverride = require('method-override')
+const Cors = require('cors')
 
 const app = express()
+app.use(Cors())
 
 app.use(parser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
