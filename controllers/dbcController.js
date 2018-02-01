@@ -32,25 +32,29 @@ Router.get('/search/:name', (req, res) => {
       Beer.collection.insert(cleanedData)
     }).then(_ => {
       Beer.find({})
-    .then((data) => {
+    .then(data => {
       res.send(data)
     })
     })
   })
 })
 
-Router.post('/buy/:name', (req, res) => {
-  Beer.findOne({id: req.params.name}).then((data) => {
+Router.post('/buy/:id', (req, res) => {
+  Beer.findOne({id: req.params.id}).then(data => {
+    console.log(`found `)
     Cart.collection.insert(data)
-  }).then(_ => { res.send('your data posted') })
+  }).then(_ => { res.sendStatus(200) })
 })
 
 Router.put('/', (req, res) => {
   res.send('You tried to put something, soon I will put it for you ;)')
 })
 
-Router.delete('/', (req, res) => {
-  res.send('You tried to delete something, soon I will delete it for you ;)')
+Router.delete('/cart/remove/:id', (req, res) => {
+  Cart.findOneAndRemove({id: req.params.id}).then(_ => {
+    res.sendStatus(200)
+    console.log(`${req.params.id} deleted`)
+  })
 })
 
 module.exports = Router
