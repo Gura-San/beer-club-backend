@@ -13,6 +13,7 @@ var brewdb = new BreweryDb(process.env.MASHAPEKEY)
 // main page route
 
 Router.get('/search/:name', (req, res) => {
+  console.log(`got a request from FE = ${req.params.name}`)
   brewdb.search.beers({ p: 1, q: req.params.name }, (error, data) => {
     const cleanedData = data.map(beer => ({
       id: beer.id,
