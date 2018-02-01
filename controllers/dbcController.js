@@ -53,7 +53,7 @@ Router.get('/cart', (req, res) => {
   Cart.find({}).then(data => {
     console.log('got get-request from cart')
     res.send(data)
-  }).catch(err => { console.log(err) })
+  })
 })
 
 Router.put('/', (req, res) => {
