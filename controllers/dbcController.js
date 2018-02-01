@@ -32,11 +32,10 @@ Router.get('/search/:name', (req, res) => {
       console.log('cleaned previous collection')
       Beer.collection.insert(cleanedData)
     }).then(_ => {
-      Beer.find({})
-    .then(data => {
-      console.log('filled up with new search data')
-      res.send(data)
-    })
+      Beer.find({}).then(data => {
+        console.log('filled up with new search data')
+        res.send(data)
+      }).catch(err => { console.log(err) })
     })
   })
 })
