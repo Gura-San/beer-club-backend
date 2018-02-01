@@ -5,7 +5,11 @@ const BeerSchema = new mongoose.Schema({
   name: String,
   description: String,
   abv: String,
-  labels: {},
+  labels: {
+    large: String,
+    medium: String,
+    icon: String
+  },
   style: {
     name: String,
     shortName: String
@@ -13,11 +17,19 @@ const BeerSchema = new mongoose.Schema({
 })
 
 const CartSchema = new mongoose.Schema({
-  bName: String,
-  bQt: Number,
-  bPrice: Number,
-  bPic: String,
-  beers: [ BeerSchema ]
+  id: String,
+  name: String,
+  description: String,
+  abv: String,
+  labels: {
+    large: String,
+    medium: String,
+    icon: String
+  },
+  style: {
+    name: String,
+    shortName: String
+  }
 })
 
 const UserSchema = new mongoose.Schema({
