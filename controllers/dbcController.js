@@ -10,7 +10,7 @@ require('dotenv').config()
 var brewdb = new BreweryDb(process.env.MASHAPEKEY)
 // ===================================================
 
-// main page route
+// main search get request that queries the API and cleans the response for FE
 
 Router.get('/search/:name', (req, res) => {
   console.log(`got a request from FE = ${req.params.name}`)
@@ -39,9 +39,17 @@ Router.get('/search/:name', (req, res) => {
   })
 })
 
+// request for the shopping cart
+
+Router.get('/cart', (req, res) => {
+  Cart.find({}).then(data => {
+    res.send(data)
+  }).catch(err => { console.log(err) })
+})
+
 Router.post('/buy/:id', (req, res) => {
   Beer.findOne({id: req.params.id}).then(data => {
-    console.log(`found `)
+    console.log(`found`)
     Cart.collection.insert(data)
   }).then(_ => { res.sendStatus(200) })
 })
