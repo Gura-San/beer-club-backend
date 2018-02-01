@@ -49,7 +49,8 @@ Router.post('/buy/:id', (req, res) => {
 })
 
 // request for the shopping cart
-Router.put('/cart', (req, res) => {
+
+Router.get('/cart', (req, res) => {
   Cart.find({}).then(data => {
     console.log('this is get-response from cart')
     res.send(data)
