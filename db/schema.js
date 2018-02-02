@@ -14,7 +14,8 @@ const BeerSchema = new mongoose.Schema({
     name: String,
     shortName: String
   },
-  price: Number
+  price: Number,
+  qnt: Number
 })
 
 const CartSchema = new mongoose.Schema({

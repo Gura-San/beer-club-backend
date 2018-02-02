@@ -24,7 +24,9 @@ Router.get('/search/:name', (req, res) => {
       style: {
         name: beer.style.name,
         shortName: beer.style.shortName
-      }
+      },
+      price: 7,
+      qnt: 1
     })
   )
 
@@ -44,13 +46,7 @@ Router.get('/search/:name', (req, res) => {
 Router.post('/buy/:id', (req, res) => {
   Beer.findOne({id: req.params.id}).then(data => {
     console.log(`placed new item in cart`)
-    Cart.collection.insert({data})
-  })
-  .then(() => {
-    Beer.findByIdAndUpdate(
-        { id: req.params.id },
-        { price: 7, qnt: 1 }
-  
+    Cart.collection.insert(data)
   })
   .then(_ => { res.sendStatus(200) })
 })
