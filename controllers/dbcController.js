@@ -59,12 +59,22 @@ Router.put('/', (req, res) => {
   res.send('You tried to put something, soon I will put it for you ;)')
 })
 
+// Remove cart item
 Router.delete('/cart/remove/:id', (req, res) => {
   console.log('remove on item from cart')
   Cart.findOneAndRemove({id: req.params.id}).then(_ => {
     res.sendStatus(200)
     console.log(`${req.params.id} deleted`)
   })
+})
+
+// Move to history and remove cart colletion
+Router.post('/cart/pay', (req, res) => {
+  Cart.find({}).then(data => {
+    User.collection.insertOne({orderHistory: data})
+  }).then(() => {
+    Cart.collection.remove()
+  }).then(_ => { res.sendStatus(200) })
 })
 
 module.exports = Router

@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema({
   address: { street: String, city: String, state: String, zip: Number },
   phone: Number,
   creditCard: Number,
-  orderHistory: [CartSchema]
+  orderHistory: {CartSchema}
 })
 const User = mongoose.model('User', UserSchema)
 const Cart = mongoose.model('Cart', CartSchema)
