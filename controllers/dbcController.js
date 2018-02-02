@@ -32,7 +32,7 @@ Router.get('/search/:name', (req, res) => {
       console.log('cleaned previous collection')
       Beer.collection.insert(cleanedData)
     }).then(_ => {
-      Beer.find({}).then(data => {
+      Beer.find({}).then((data) => {
         console.log('filled up with new search data')
         res.send(data)
       }).catch(err => { console.log(err) })
@@ -52,7 +52,7 @@ Router.post('/buy/:id', (req, res) => {
 Router.get('/cart', (req, res) => {
   Cart.find({}).then(data => {
     console.log('got get-request from cart')
-    res.send(data)
+    res.send(data.data)
   })
 })
 
