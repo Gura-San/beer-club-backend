@@ -32,11 +32,10 @@ Router.get('/search/:name', (req, res) => {
       console.log('cleaned previous collection')
       Beer.collection.insert(cleanedData)
     }).then(_ => {
-      Beer.find({})
-    .then(data => {
-      console.log('filled up with new search data')
-      res.send(data)
-    })
+      Beer.find({}).then((data) => {
+        console.log('filled up with new search data')
+        res.send(data)
+      }).catch(err => { console.log(err) })
     })
   })
 })
@@ -51,10 +50,9 @@ Router.post('/buy/:id', (req, res) => {
 
 // request for the shopping cart
 Router.get('/cart', (req, res) => {
-  Cart.find({}).then(data => {
-    console('got get-request from cart')
+  Cart.find({}).then((data) => {
     res.send(data)
-  }).catch(err => { console.log(err) })
+  })
 })
 
 Router.put('/', (req, res) => {
