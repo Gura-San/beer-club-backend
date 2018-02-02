@@ -58,8 +58,10 @@ Router.get('/cart', (req, res) => {
   })
 })
 
-Router.put('/', (req, res) => {
-  res.send('You tried to put something, soon I will put it for you ;)')
+Router.put('/cart/update/:id', (req, res) => {
+  console.log(req.body)
+  Cart.findOneAndUpdate({id: req.params.id}, {qnt: req.body.qnt})
+  .then(_ => res.sendStatus(200))
 })
 
 // Remove cart item
