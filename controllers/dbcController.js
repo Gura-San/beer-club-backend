@@ -44,8 +44,15 @@ Router.get('/search/:name', (req, res) => {
 Router.post('/buy/:id', (req, res) => {
   Beer.findOne({id: req.params.id}).then(data => {
     console.log(`placed new item in cart`)
-    Cart.collection.insert(data)
-  }).then(_ => { res.sendStatus(200) })
+    Cart.collection.insert({data})
+  })
+  .then(() => {
+    Beer.findByIdAndUpdate(
+        { id: req.params.id },
+        { price: 7, qnt: 1 }
+  
+  })
+  .then(_ => { res.sendStatus(200) })
 })
 
 // request for the shopping cart
