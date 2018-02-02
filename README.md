@@ -1,5 +1,5 @@
 ## Dollar Beer Club website Back-End
-This is Back-End part for the MERN application website - [Dollar Beer Club](https://github.com/codenamequet/beer-club-front-end) that provides complete CRUD functionality as well as access to the 3rd party API [BreweryDB.com](http://www.brewerydb.com/). The website is meant to help brew enthusiasts find and acquire their favorite brew.
+This is Back-End part for the MERN application website for [Dollar Beer Club](https://github.com/codenamequet/beer-club-front-end) that provides complete CRUD functionality as well as access to the 3rd party API [BreweryDB.com](http://www.brewerydb.com/). The website is meant to help brew enthusiasts find and acquire their favorite brew.
 
 
 ## Dev Team
