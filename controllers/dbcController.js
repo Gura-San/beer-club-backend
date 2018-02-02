@@ -52,7 +52,7 @@ Router.post('/buy/:id', (req, res) => {
 Router.get('/cart', (req, res) => {
   Cart.find({}).then(data => {
     console.log('got get-request from cart')
-    res.send(data.body)
+    res.send(data)
   })
 })
 
