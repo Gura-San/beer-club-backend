@@ -55,6 +55,12 @@ Router.get('/cart', (req, res) => {
   })
 })
 
+Router.get('/dbc', (req, res) => {
+  Beer.find({}).then(data => {
+    res.send(data)
+  })
+})
+
 Router.put('/', (req, res) => {
   res.send('You tried to put something, soon I will put it for you ;)')
 })
