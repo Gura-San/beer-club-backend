@@ -11,7 +11,7 @@ var brewdb = new BreweryDb(process.env.MASHAPEKEY)
 // ===================================================
 
 // main search get request that queries the API and cleans the response for FE
-
+// I like the logic in this method
 Router.get('/search/:name', (req, res) => {
   console.log(`got a request for = ${req.params.name}`)
   brewdb.search.beers({ p: 1, q: req.params.name }, (error, data) => {
@@ -58,6 +58,7 @@ Router.get('/cart', (req, res) => {
   })
 })
 
+// You don't need to create differt paths for update and remove, because the methods are different
 Router.put('/cart/update/:id', (req, res) => {
   console.log(req.body)
   Cart.findOneAndUpdate({id: req.params.id}, {qnt: req.body.qnt})
